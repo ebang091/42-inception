@@ -1,2 +1,0 @@
-;listen = /run/php/php7.4-fpm.sock
-listen = wordpress:9000
