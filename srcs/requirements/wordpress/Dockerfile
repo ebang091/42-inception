@@ -12,8 +12,6 @@ RUN		apt-get -y install php7.4 php7.4-fpm php7.4-mysql curl \
 		&& mv wp-cli.phar /usr/local/bin/wp \
 		&& mkdir -p /var/www/html/wordpress
 
-# COPY	conf/wp-config.php /var/www/html/wp-config.php
-# COPY	conf/www.conf /etc/php/7.4/fpm/pool.d/www.conf
 COPY	tools/settings.sh ./init.sh
 RUN		chmod 777 init.sh
 

@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-if [! -d /var/lib/mysql/${WORDPRESS_DB_NAME}]; then
+if [ ! -d /var/lib/mysql/${WORDPRESS_DB_NAME} ]; then
     
     mariadb-install-db
 

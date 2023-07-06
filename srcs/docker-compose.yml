@@ -3,9 +3,9 @@ version: "3"
 services:
   mariadb:
     container_name: mariadb
-    build: ./requirements/mariadb
+    build: ./requirements/mariadb/
     volumes:
-      - /home/ebang/data/mariadb:/var/lib/mysql
+      - db:/var/lib/mysql
     env_file:
       - ./.env
     expose:
@@ -18,9 +18,9 @@ services:
     depends_on:
       - mariadb
     container_name: wordpress
-    build: ./requirements/wordpress
+    build: ./requirements/wordpress/
     volumes:
-      - /home/ebang/data/wordpress:/var/www/html/wordpress
+      - wp:/var/www/html/wordpress
     env_file:
       - ./.env
     expose:
@@ -34,9 +34,9 @@ services:
       - mariadb
       - wordpress
     container_name: nginx
-    build: ./requirements/nginx
+    build: ./requirements/nginx/
     volumes:
-      - /home/ebang/data/wordpress:/var/www/html/wordpress
+      - wp:/var/www/html/wordpress
     env_file:
       - ./.env
     ports:
@@ -44,6 +44,20 @@ services:
     networks:
       - ebangNetwork
     restart: always
+
+volumes:
+  db:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: '/home/ebang/data/mariadb'
+  wp:
+    driver: local
+    driver_opts:
+      type: none
+      o: bind
+      device: '/home/ebang/data/wordpress'
 
 networks:
   ebangNetwork: 
