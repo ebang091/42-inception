@@ -11,7 +11,7 @@ services:
     expose:
       - 3306
     networks:
-      - my
+      - ebangNetwork
     restart: always
 
   wordpress:
@@ -26,7 +26,7 @@ services:
     expose:
       - 9000
     networks:
-      - my
+      - ebangNetwork
     restart: always
 
   nginx:
@@ -42,9 +42,9 @@ services:
     ports:
       - 443:443
     networks:
-      - my
+      - ebangNetwork
     restart: always
 
 networks:
-  my: 
+  ebangNetwork: 
     driver: bridge

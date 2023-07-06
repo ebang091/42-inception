@@ -3,11 +3,18 @@ FROM debian:bullseye
 RUN 	apt-get -y update \
 		&& apt-get -y install dumb-init
 
-RUN 	apt-get -y install nginx
+RUN 	apt-get -y install nginx openssl \
+		&& mkdir -p /etc/nginx/ssl/ \
+		&& chmod 777 /etc/nginx/ssl
 
+CONTRY_NAME=KR
+STATE=Seoul
+LOCALITY=Gaepodong
+ORGANIZATION=42Seoul
+COMMON_NAME=ebang.42.fr
+
+RUN chmod 777 ./tools/settings.sh && sh ./tools/settings.sh
 COPY	conf/default /etc/nginx/sites-enabled/default
-COPY	tools/server.crt /etc/nginx/ssl/nginx.crt
-COPY	tools/server_pkey.pem /etc/nginx/ssl/nginx.pem
 
 ENTRYPOINT ["/usr/bin/dumb-init"]
 
