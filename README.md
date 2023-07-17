@@ -8,6 +8,7 @@ A project using Docker Compose.
 2. Can you use Docker Compose to run multiple containers in a network?
 3. Can you set up an environment where MySQL, WordPress, and Nginx services work together?
      (not using docker image, but by configuring Dockerfile)
+4. Can you manage .env file for docker-compose service for security?
 
 ### To complete this module, I collected the following knowledge:
 1. Translation and understanding of Nginx documentation: [Nginx Docs Translation](https://ebang.tistory.com/106)
