@@ -6,7 +6,7 @@ A project using Docker Compose.
 ### I can answer the following questions:
 1. Do you understand the concept of containers? (Difference between virtual machines)
 2. Can you use Docker Compose to run multiple containers in a network?
-3. Can you set up an environment where MySQL, WordPress, and Nginx services work together?
+3. Can you set up an environment where MySQL, WordPress, and Nginx services work together? (not using docker image, by configuring Dockerfile)
 
 ### To complete this module, I collected the following knowledge:
 1. Translation and understanding of Nginx documentation: [Nginx Docs Translation](https://ebang.tistory.com/106)
